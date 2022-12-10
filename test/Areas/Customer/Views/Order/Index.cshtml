@@ -1,0 +1,59 @@
+﻿
+@{
+    var status=Context.Request.Query["status"];
+    var pending="";
+    var approved = "";
+    var inprocess = "";
+    var completed = "";
+    var all = "";
+    switch (status)
+    {
+        case "pending":
+            pending="btn-primary";
+            break;
+        case "approved":
+            approved = "btn-primary";
+            break;
+         case "inprocess":
+            inprocess = "btn-primary";
+            break;
+         case "completed":
+            completed = "btn-primary";
+            break;
+         case "all":
+            all = "btn-primary";
+            break;    
+    }
+}
+
+<div class="row mb-4 mt-4">
+    <div class="col-6 text-primary">
+        <h1>Order List</h1>
+    </div>
+</div>
+
+<ul class="d-flex justify-content-between list-group-horizontal-sm">
+    <li class="btn"><a asp-action="Index" asp-route-status="pending" class="btn @pending">pending</a></li>
+    <li class="btn"><a asp-action="Index" asp-route-status="approved" class="btn @approved">approved</a></li>
+    <li class="btn"><a asp-action="Index" asp-route-status="inprocess" class="btn @inprocess" >inprocess</a></li>
+    <li class="btn"><a asp-action="Index" asp-route-status="completed" class="btn @completed">completed</a></li>
+    <li class="btn"><a asp-action="Index" asp-route-status="all" class="btn @all">all</a></li>
+</ul>
+
+<table id="myTable">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>PhoneNumber</th> 
+            <th>Email</th>
+            <th>Status</th>
+            <th>Total</th>
+            <th></th>
+        </tr>
+    </thead>
+</table>
+
+@section scripts{
+    <script src="~/js/Order.js"></script>
+}

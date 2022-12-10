@@ -1,0 +1,47 @@
+﻿@model Company
+@{
+    ViewData["Title"] = "Upsert";
+}
+
+<form method="post" class="mt-4 mb-4 p-2">
+    <div class="mt-2">
+        <label asp-for="Name"></label>
+        <input asp-for="Name" class="form-control"/>
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+     <div class="mt-2">
+        <label asp-for="StreetAddress"></label>
+        <input asp-for="StreetAddress" class="form-control"/>
+        <span asp-validation-for="StreetAddress" class="text-danger"></span>
+    </div>
+     <div class="mt-2">
+        <label asp-for="City"></label>
+        <input asp-for="City" class="form-control"/>
+        <span asp-validation-for="City" class="text-danger"></span>
+    </div>
+     <div class="mt-2">
+        <label asp-for="State"></label>
+        <input asp-for="State" class="form-control"/>
+        <span asp-validation-for="State" class="text-danger"></span>
+    </div>
+     <div class="mt-2">
+        <label asp-for="PostalCode"></label>
+        <input asp-for="PostalCode" class="form-control"/>
+        <span asp-validation-for="PostalCode" class="text-danger"></span>
+    </div>
+     <div class="mt-2">
+        <label asp-for="PhoneNumber"></label>
+        <input asp-for="PhoneNumber" class="form-control"/>
+        <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+    </div>
+    <div class="mt-2">
+        <button type="submit" class="btn btn-primary">@(Model.Id==0?"Add":"Update")</button>
+        <a asp-action="Index" class="btn btn-secondary">Go Back</a>
+    </div>
+</form>
+
+@section scripts{
+    @{
+        <partial name="_ValidationScriptsPartial"/>
+    }
+}
